@@ -19,6 +19,7 @@ public class SignUpController {
 		String email = rep.getParameter("email");
 		String firstName = rep.getParameter("firstName");
 		String lastName = rep.getParameter("lastName");
+		String userName = rep.getParameter("uerName");
 		String password = rep.getParameter("password");
 		String type = rep.getParameter("Type");
 		
@@ -28,6 +29,7 @@ public class SignUpController {
 		user.setEmail(email);
 		user.setFirstName(firstName);
 		user.setLastName(lastName);
+		user.setUserName(userName);
 		user.setPassword(password);
 		
 		user.saveToDatabase();
