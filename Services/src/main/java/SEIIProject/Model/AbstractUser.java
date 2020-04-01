@@ -9,6 +9,7 @@ public abstract class AbstractUser {
 	String userName;
 	String password;
 	String email;
+	String type;
 	
 	public String getFirstName() {
 		return firstName;
@@ -49,15 +50,24 @@ public abstract class AbstractUser {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getType() {
+		return type;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	
-	public AbstractUser(String firstName, String lastName,String userName, String password, String email) {
+	public AbstractUser(String firstName, String lastName,String userName, String password, String email, String type) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
 		this.password = password;
 		this.email = email;
+		this.type = type;
 	}
 
 	public AbstractUser() {
@@ -74,13 +84,14 @@ public abstract class AbstractUser {
 
 	public void saveToDatabase() {
 		DataRepository dr = new DataRepository();
-		String query = "INSERT INTO 'Users' ('firstName', 'lastName', 'userName', 'password', 'email') VALUES"
-				+ "'" + getFirstName() + "'" + getLastName() + "'" + getUserName() + "'" + getPassword() + "'" + getEmail() + "')";
+		String query = "INSERT INTO users (firstName, lastName, userName, password, email, type) VALUES"
+				+ "('" + getFirstName() + "','" + getLastName() + "','" + getUserName() + "','" + getPassword() + "','" + getEmail() + "','" 
+				+ getType()+ "')";
 		try
 		{
-			dr.rs = dr.st.executeQuery(query);
+			int row = dr.st.executeUpdate(query);
 		}catch(Exception e){
-			System.out.println("error : " + e);
+			System.out.println("error2 : " + e);
 		}
 	}
 }

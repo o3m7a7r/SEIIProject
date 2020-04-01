@@ -3,6 +3,10 @@ package SEIIProject.Repository;
 import java.util.ArrayList;
 
 import SEIIProject.Model.AbstractUser;
+import SEIIProject.Model.Administrator;
+import SEIIProject.Model.Buyer;
+import SEIIProject.Model.StoreOwner;
+import SEIIProject.Model.UserFactory;
 
 public class UserLoader implements Loader{
 	public ArrayList<AbstractUser> loadALL()
@@ -10,7 +14,6 @@ public class UserLoader implements Loader{
 		String query;
 		DataRepository dr = new DataRepository(); 
 		ArrayList<AbstractUser> au = new ArrayList();
-		AbstractUser u = null;
 		try 
 		{
 			
@@ -25,18 +28,24 @@ public class UserLoader implements Loader{
 				String uName = dr.rs.getString("userName");
 				String pass = dr.rs.getString("password");
 				String email = dr.rs.getString("email");
+				String type = dr.rs.getString("type");
+				UserFactory nu = new UserFactory();
+				AbstractUser u = null;
+				u = nu.getUser(type);
 				u.setFirstName(fName);
 				u.setLastName(lName);
-				u.setPassword(pass);
 				u.setUserName(uName);
+				u.setPassword(pass);
 				u.setEmail(email);
+				u.setType(type);
 				au.add(u);
 			}
 			
 		}catch(Exception e)
 		{
-			System.out.println("error : " + e);
+			System.out.println("error1 : " + e);
 		}
 		return au;
 	}
+
 }

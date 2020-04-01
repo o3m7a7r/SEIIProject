@@ -15,7 +15,7 @@ import SEIIProject.Repository.Loader;
 import SEIIProject.Repository.UserLoader;
 
 @RestController
-public class SignUpController {
+public class UserController {
 	
 	@RequestMapping("/signup")
 	String signUp(HttpServletRequest rep) {
@@ -43,13 +43,9 @@ public class SignUpController {
 		
 		
 	}
-	
-		
 		@RequestMapping("/printAll")
 		public ArrayList<AbstractUser> printAll() {
 			Loader l = new UserLoader();
-			//ArrayList<AbstractUser> au = new ArrayList();
-			//AbstractUser u = null;
 			return l.loadALL();
 		}
 

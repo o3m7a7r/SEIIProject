@@ -20,7 +20,7 @@ public class DataRepository {
 			
 		}catch(Exception e) 
 		{
-			System.out.println("error : " + e);
+			System.out.println("error3 : " + e);
 		}
 	}
 	

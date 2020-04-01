@@ -9,14 +9,8 @@ import SEIIProject.Model.AbstractUser;
 
 @RestController
 public class PrintAllController {
-	private String query;
 	
 	DataRepository dr = new DataRepository();
-	
-	
-	public PrintAllController() {
-		query = null;
-	}
 	
 	@RequestMapping("/printAll")
 	public ArrayList<AbstractUser> printAll() {

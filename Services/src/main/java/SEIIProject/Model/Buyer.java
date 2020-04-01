@@ -2,8 +2,8 @@ package SEIIProject.Model;
 
 public class Buyer extends AbstractUser {
 
-	public Buyer(String firstName, String lastName,String userName, String password, String email) {
-		super(firstName, lastName,userName, password, email);
+	public Buyer(String firstName, String lastName,String userName, String password, String email, String type) {
+		super(firstName, lastName,userName, password, email, type);
 		
 	}
 
@@ -11,9 +11,8 @@ public class Buyer extends AbstractUser {
 		super();
 	}
 
-	@Override
-	public void saveToDatabase() {
+	/*public void saveToDatabase() {
 		System.out.println("dfsdfsdf");
-	}
+	}*/
 
 }
