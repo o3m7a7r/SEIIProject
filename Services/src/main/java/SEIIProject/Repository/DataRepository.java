@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class DataRepository {
 	
-	private Connection con;
-	private Statement st;
-	private ResultSet rs;
+	public Connection con;
+	public Statement st;
+	public ResultSet rs;
 	
 	
 	public DataRepository()
@@ -14,7 +14,7 @@ public class DataRepository {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/name of the data base", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SWII", "root", "");
 			st = con.createStatement();
 			
 			
